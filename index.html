@@ -18,8 +18,53 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./images/OCMlogo.png">
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                        serif: ['Merriweather', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'pulse-slow': {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 4px 6px -1px rgba(59, 130, 246, 0.2), 0 2px 4px -1px rgba(59, 130, 246, 0.1)' },
+                            '50%': { transform: 'scale(1.05)', boxShadow: '0 10px 15px -3px rgba(59, 130, 246, 0.3), 0 4px 6px -2px rgba(59, 130, 246, 0.1)' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css">
@@ -36,12 +81,12 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <a href="./" class="flex items-center space-x-2">
-                    <img src="./images/OCMlogo.png" alt="OCM Logo" class="h-12">
+                    <img src="./images/OCMLOGOnobkg.png" alt="OCM Logo" class="h-12">
                     <span class="text-xl font-bold text-gray-800">Overcomers Caring Ministries</span>
                 </a>
                 
                 <!-- Mobile menu button -->
-                <button id="mobile-menu-button" class="md:hidden">
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -49,77 +94,124 @@
                 
                 <!-- Desktop menu -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="./" class="text-gray-800 hover:text-blue-600 transition">Home</a>
-                    <a href="./pages/about.html" class="text-gray-800 hover:text-blue-600 transition">About Us</a>
-                    <a href="./pages/work.html" class="text-gray-800 hover:text-blue-600 transition">Our Work</a>
-                    <a href="./pages/get-involved.html" class="text-gray-800 hover:text-blue-600 transition">Get Involved</a>
-                    <a href="./pages/support.html" class="text-gray-800 hover:text-blue-600 transition">Support Us</a>
-                    <a href="./pages/gallery.html" class="text-gray-800 hover:text-blue-600 transition">Gallery</a>
-                    <a href="./pages/blog.html" class="text-gray-800 hover:text-blue-600 transition">Blog</a>
-                    <a href="./pages/contact.html" class="text-gray-800 hover:text-blue-600 transition">Contact</a>
+                    <a href="#" class="nav-link active">Home</a>
+                    <a href="#mission" class="nav-link">Mission</a>
+                    <a href="#programs" class="nav-link">Programs</a>
+                    <a href="#support" class="nav-link">Support Us</a>
+                    <a href="./pages/about.html" class="nav-link">About</a>
+                    <a href="./pages/gallery.html" class="nav-link">Gallery</a>
+                    <a href="./pages/contact.html" class="nav-link">Contact</a>
                 </div>
             </div>
         </div>
         
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white">
-            <div class="px-4 py-2 space-y-3">
-                <a href="./" class="block text-gray-800 hover:text-blue-600 transition">Home</a>
-                <a href="./pages/about.html" class="block text-gray-800 hover:text-blue-600 transition">About Us</a>
-                <a href="./pages/work.html" class="block text-gray-800 hover:text-blue-600 transition">Our Work</a>
-                <a href="./pages/get-involved.html" class="block text-gray-800 hover:text-blue-600 transition">Get Involved</a>
-                <a href="./pages/support.html" class="block text-gray-800 hover:text-blue-600 transition">Support Us</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#" class="block text-gray-800 hover:text-blue-600 transition font-medium">Home</a>
+                <a href="#mission" class="block text-gray-800 hover:text-blue-600 transition">Mission</a>
+                <a href="#programs" class="block text-gray-800 hover:text-blue-600 transition">Programs</a>
+                <a href="#support" class="block text-gray-800 hover:text-blue-600 transition">Support Us</a>
+                <a href="./pages/about.html" class="block text-gray-800 hover:text-blue-600 transition">About</a>
                 <a href="./pages/gallery.html" class="block text-gray-800 hover:text-blue-600 transition">Gallery</a>
-                <a href="./pages/blog.html" class="block text-gray-800 hover:text-blue-600 transition">Blog</a>
                 <a href="./pages/contact.html" class="block text-gray-800 hover:text-blue-600 transition">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0">
+    <section class="hero-section relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 hover-zoom">
             <img src="./images/childrenposing1.JPG" alt="Happy children at Overcomers" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="absolute inset-0 overlay"></div>
         </div>
         
-        <div class="relative container mx-auto px-4 text-center text-white" data-aos="fade-up">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Empowering Children Through Christ's Love</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Providing education, care, and hope to vulnerable children in our community</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="/pages/support.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full transition transform hover:scale-105">Support Our Mission</a>
-                <a href="/pages/get-involved.html" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full transition transform hover:scale-105">Get Involved</a>
+        <div class="relative container mx-auto px-4 text-center text-white">
+            <span class="inline-block px-4 py-1 bg-blue-600/80 rounded-full text-sm font-semibold mb-4 backdrop-blur-sm" data-aos="fade-down" data-aos-delay="200">Making a difference in children's lives</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight" data-aos="fade-up" data-aos-delay="400">
+                Empowering Children <br>
+                <span class="text-blue-300 text-gradient">Through Christ's Love</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto font-light" data-aos="fade-up" data-aos-delay="600">Providing education, care, and hope to vulnerable children in our community</p>
+            <div class="flex flex-col md:flex-row justify-center gap-6 mt-10" data-aos="fade-up" data-aos-delay="800">
+                <a href="./pages/support.html" class="btn-primary text-lg px-10 py-4 animate-pulse-slow">Support Our Mission</a>
+                <a href="./pages/get-involved.html" class="btn-secondary text-lg px-10 py-4 animate-float">Get Involved</a>
             </div>
         </div>
     </section>
 
     <!-- Mission Statement -->
-    <section class="py-20 bg-white">
+    <section id="mission" class="py-24 bg-white mt-8">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">Our Purpose</span>
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
-                <p class="text-xl text-gray-600 leading-relaxed">
+                <p class="text-xl text-gray-600 leading-relaxed mb-6">
                     To uplift and empower vulnerable and needy children in our community through the love of Christ. 
                     We provide a safe and nurturing environment through our school, home, and orphanage, focusing on 
                     education, basic needs, and talent development.
                 </p>
+                <div class="flex flex-col md:flex-row gap-6 mt-8 max-w-4xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-md p-6 flex-1 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Christ-Centered Values</h3>
+                        <p class="text-gray-600">Grounded in Christian principles, we nurture spiritual growth alongside physical and educational development.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-md p-6 flex-1 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Holistic Development</h3>
+                        <p class="text-gray-600">We focus on the complete development of each child - mind, body, and spirit - to help them reach their full potential.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-md p-6 flex-1 hover:shadow-lg transition">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Community Focused</h3>
+                        <p class="text-gray-600">We believe in building strong communities through empowering children and families with education and support.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Impact Numbers -->
-    <section class="py-20 bg-gray-50">
+    <section id="impact" class="py-24 bg-gray-50 mt-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                <div class="text-center bg-white p-8 rounded-xl shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl" data-aos="fade-up" data-aos-delay="0">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
                     <div class="text-4xl font-bold text-blue-600 mb-2">100+</div>
                     <div class="text-gray-600">Children Supported</div>
                 </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-center bg-white p-8 rounded-xl shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
                     <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
                     <div class="text-gray-600">Years of Service</div>
                 </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-center bg-white p-8 rounded-xl shadow-lg transform transition hover:-translate-y-1 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
                     <div class="text-4xl font-bold text-blue-600 mb-2">1000+</div>
                     <div class="text-gray-600">Lives Impacted</div>
                 </div>
@@ -128,29 +220,120 @@
     </section>
 
     <!-- Featured Programs -->
-    <section class="py-20 bg-white">
+    <section id="programs" class="py-24 bg-white mt-8">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">Our Programs</h2>
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">What We Do</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Our Programs</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10">We provide comprehensive programs designed to nurture the whole child - intellectually, physically, and spiritually. Our approach focuses on sustainable development and long-term success.</p>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="0">
-                    <img src="./images/classroom.JPG" alt="Education Program" class="w-full h-48 object-cover">
+                <div class="card hover-zoom" data-aos="fade-up" data-aos-delay="0">
+                    <div class="relative">
+                        <img src="./images/classroom.JPG" alt="Education Program" class="w-full h-56 object-cover">
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Core Program</div>
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Education</h3>
-                        <p class="text-gray-600">Providing quality education and learning materials to help children succeed.</p>
+                        <h3 class="text-xl font-bold mb-3">Education Program</h3>
+                        <p class="text-gray-600 mb-4">We provide quality education through our school, including:</p>
+                        <ul class="text-gray-600 mb-4 space-y-2">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Primary and secondary education</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Learning materials and textbooks</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Qualified teachers and mentors</span>
+                            </li>
+                        </ul>
+                        <a href="./pages/work.html" class="text-blue-600 font-medium inline-flex items-center hover:underline">
+                            Learn more about our education
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-                <div class="rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <img src="./images/kitchen.JPG" alt="Basic Needs Program" class="w-full h-48 object-cover">
+                <div class="card hover-zoom" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="./images/kitchen.JPG" alt="Basic Needs Program" class="w-full h-56 object-cover">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Daily Support</div>
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Basic Needs</h3>
-                        <p class="text-gray-600">Ensuring children have access to food, clothing, and healthcare.</p>
+                        <h3 class="text-xl font-bold mb-3">Basic Needs Program</h3>
+                        <p class="text-gray-600 mb-4">We ensure all children's essential needs are met:</p>
+                        <ul class="text-gray-600 mb-4 space-y-2">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Nutritious meals and clean water</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Clothing, shelter, and hygiene</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Healthcare and medical support</span>
+                            </li>
+                        </ul>
+                        <a href="./pages/work.html" class="text-green-600 font-medium inline-flex items-center hover:underline">
+                            Learn more about our care services
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-                <div class="rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <img src="./images/parade1.JPG" alt="Talent Development" class="w-full h-48 object-cover">
+                <div class="card hover-zoom" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="./images/parade1.JPG" alt="Talent Development" class="w-full h-56 object-cover">
+                        <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Enrichment</div>
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Talent Development</h3>
-                        <p class="text-gray-600">Nurturing creativity through music, dance, art, and sports.</p>
+                        <h3 class="text-xl font-bold mb-3">Talent Development</h3>
+                        <p class="text-gray-600 mb-4">We nurture creativity and skills through:</p>
+                        <ul class="text-gray-600 mb-4 space-y-2">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Music, dance, and performing arts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Sports and physical activities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Vocational and life skills training</span>
+                            </li>
+                        </ul>
+                        <a href="./pages/work.html" class="text-purple-600 font-medium inline-flex items-center hover:underline">
+                            Learn more about talent development
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -158,99 +341,251 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="py-20 bg-blue-600 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">Make a Difference Today</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                Your support can help us continue providing care, education, and hope to vulnerable children.
-            </p>
-            <a href="/pages/support.html" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-full transition transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
-                Support Our Mission
-            </a>
+    <section id="support" class="py-24 bg-gradient-to-r from-blue-700 to-blue-500 text-white relative overflow-hidden mt-8">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+                <path d="M0,0 L100,100 M100,0 L0,100" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+            </svg>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 bg-white/20 text-white backdrop-blur-sm rounded-full text-sm font-semibold mb-4">Join Our Cause</span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Support Our Mission</h2>
+                <p class="text-xl mb-10 max-w-2xl mx-auto">
+                    Your generosity can transform lives. Together, we can provide education, care, and hope for vulnerable children.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center transform transition hover:-translate-y-1 hover:bg-white/20" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Make a Donation</h3>
+                    <p class="mb-4 opacity-90">Your financial support helps provide education, food, healthcare, and shelter to children in need.</p>
+                    <a href="./pages/donate.html" class="inline-block bg-white text-blue-600 px-5 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition">Donate Now</a>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center transform transition hover:-translate-y-1 hover:bg-white/20" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Volunteer With Us</h3>
+                    <p class="mb-4 opacity-90">Share your time, skills, and passion to make a meaningful difference in children's lives.</p>
+                    <a href="./pages/volunteer.html" class="inline-block bg-white text-blue-600 px-5 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition">Get Involved</a>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center transform transition hover:-translate-y-1 hover:bg-white/20" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Spread Awareness</h3>
+                    <p class="mb-4 opacity-90">Help us reach more people by sharing our mission with your friends, family, and community.</p>
+                    <a href="./pages/contact.html" class="inline-block bg-white text-blue-600 px-5 py-2 rounded-full text-sm font-medium hover:bg-blue-50 transition">Contact Us</a>
+                </div>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                <a href="./pages/support.html" class="inline-flex items-center bg-white text-blue-600 px-8 py-3 rounded-full transition transform hover:scale-105 hover:shadow-lg font-medium">
+                    <span>Learn More About Supporting Us</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Video Section -->
-    <section class="py-20 bg-white">
+    <section id="video" class="py-24 bg-white mt-8">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">Our Home Song</h2>
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">Watch & Listen</span>
+                <h2 class="text-3xl md:text-4xl font-bold" data-aos="fade-up">Our Home Song</h2>
+            </div>
             <div class="max-w-4xl mx-auto" data-aos="fade-up">
-                            <div class="video-container">
-                <video id="homeVideo" poster="./images/ourhomesong.png">
-                    <source src="./images/ourhomesong1.MP4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <button id="playButton" class="video-play-button">
-                    <svg fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
-                    </svg>
-                </button>
-                <div class="video-controls">
-                    <div class="flex items-center justify-between text-white">
-                        <div class="text-sm">Our Home Song</div>
-                        <div class="text-sm">Click to play/pause</div>
+                <div class="video-container shadow-2xl rounded-xl overflow-hidden">
+                    <video id="homeVideo" poster="./images/ourhomesong.png">
+                        <source src="./images/ourhomesong1.MP4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <button id="playButton" class="video-play-button">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                        </svg>
+                    </button>
+                    <div class="video-controls">
+                        <div class="flex items-center justify-between text-white">
+                            <div class="text-sm font-medium">Our Home Song</div>
+                            <div class="text-sm">Click to play/pause</div>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </section>
 
     <!-- Newsletter -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Stay Updated</h2>
-                <p class="text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="100">
-                    Subscribe to our newsletter to receive updates about our work and impact.
-                </p>
-                <form id="newsletter-form" class="flex flex-col md:flex-row gap-4" data-aos="fade-up" data-aos-delay="200">
-                    <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-full border focus:outline-none focus:border-blue-600">
-                    <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full transition transform hover:scale-105">
-                        Subscribe
-                    </button>
-                </form>
+    <section id="newsletter" class="py-24 bg-gray-50 mt-8 relative">
+        <div class="absolute inset-0 bg-blue-50 opacity-50 pattern-dots pattern-blue-500 pattern-bg-white pattern-size-4 pattern-opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-10" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">Join Our Community</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Join our newsletter to receive updates about our work and how you can help make a difference.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-blue-100" data-aos="fade-up">
+                <div class="grid grid-cols-1 md:grid-cols-5">
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-700 text-white p-8 md:col-span-2 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full opacity-20 -mr-10 -mt-10"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-500 rounded-full opacity-20 -ml-10 -mb-10"></div>
+                        
+                        <h3 class="text-2xl font-bold mb-6 relative">Newsletter Benefits</h3>
+                        <div class="space-y-4 relative">
+                            <div class="flex items-center space-x-3 bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+                                <div class="bg-white/20 p-2 rounded-full">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span>Monthly updates on our activities</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+                                <div class="bg-white/20 p-2 rounded-full">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span>Inspiring success stories</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+                                <div class="bg-white/20 p-2 rounded-full">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span>Opportunities to get involved</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 md:p-10 md:col-span-3">
+                        <h4 class="text-xl font-bold mb-6 text-gray-800">Subscribe to Our Newsletter</h4>
+                        <form class="space-y-5" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="86948fa2-dc4a-4047-bf87-2a710bb7293b">
+                            <input type="hidden" name="subject" value="New Newsletter Subscription">
+                            <input type="hidden" name="from_name" value="Overcomers Caring Ministries">
+                            <input type="hidden" name="redirect" value="./pages/success.html">
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-input border-2 focus:border-blue-500" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-input border-2 focus:border-blue-500" placeholder="john@example.com" required>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition transform hover:scale-105 font-medium flex items-center justify-center">
+                                <span>Subscribe to Newsletter</span>
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                            </button>
+                            <p class="text-sm text-gray-500 mt-3">
+                                By subscribing, you agree to receive emails from Overcomers Caring Ministries. You can unsubscribe at any time.
+                            </p>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <img src="images/OCMlogowhite.png" alt="OCM Logo" class="h-12 mb-4">
-                    <p class="text-gray-400">Empowering children through Christ's love</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="/pages/about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
-                        <li><a href="/pages/work.html" class="text-gray-400 hover:text-white transition">Our Work</a></li>
-                        <li><a href="/pages/get-involved.html" class="text-gray-400 hover:text-white transition">Get Involved</a></li>
-                        <li><a href="/pages/contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>Ongata Rongai</li>
-                        <li>Boonhouse Area</li>
-                        <li>Phone: +254 724 406 285</li>
-                        <li>Phone: +254 786 223 271</li>
-                        <li>Email: ministryovercomers@yahoo.com</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Follow Us</h3>
+    <footer class="bg-gray-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <svg class="h-full w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <div class="md:col-span-4">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="./images/OCMLOGOnobkg.png" alt="OCM Logo" class="h-12">
+                        <div>
+                            <h3 class="font-bold text-lg">Overcomers</h3>
+                            <p class="text-blue-300 text-sm">Caring Ministries</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">Empowering vulnerable children through Christ's love. We provide education, care, and hope to those who need it most.</p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/profile.php?id=61575170183218&mibextid=ZbWKwL" class="text-gray-400 hover:text-white transition">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        <a href="https://www.facebook.com/profile.php?id=61575170183218&mibextid=ZbWKwL" class="bg-gray-800 p-2 rounded-full hover:bg-blue-600 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
-                        <a href="https://www.instagram.com/overcomerscaringministries/profilecard/?igsh=dDJxNWMyaW16eHVv" class="text-gray-400 hover:text-white transition">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+                        <a href="https://www.instagram.com/overcomerscaringministries/profilecard/?igsh=dDJxNWMyaW16eHVv" class="bg-gray-800 p-2 rounded-full hover:bg-pink-600 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
                         </a>
                     </div>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="text-lg font-bold mb-6 relative">
+                        <span class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-blue-500 rounded-full"></span>
+                        Quick Links
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="./pages/about.html" class="text-gray-400 hover:text-white transition flex items-center"><svg class="w-3 h-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> About Us</a></li>
+                        <li><a href="./pages/work.html" class="text-gray-400 hover:text-white transition flex items-center"><svg class="w-3 h-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> Our Work</a></li>
+                        <li><a href="./pages/get-involved.html" class="text-gray-400 hover:text-white transition flex items-center"><svg class="w-3 h-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> Get Involved</a></li>
+                        <li><a href="./pages/support.html" class="text-gray-400 hover:text-white transition flex items-center"><svg class="w-3 h-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> Support Us</a></li>
+                        <li><a href="./pages/contact.html" class="text-gray-400 hover:text-white transition flex items-center"><svg class="w-3 h-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-3">
+                    <h3 class="text-lg font-bold mb-6 relative">
+                        <span class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-blue-500 rounded-full"></span>
+                        Contact Us
+                    </h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-3 text-blue-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <span class="block">Ongata Rongai</span>
+                                <span>Boonhouse Area</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>+254 724 406 285</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>ministryovercomers@yahoo.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:col-span-3">
+                    <h3 class="text-lg font-bold mb-6 relative">
+                        <span class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-blue-500 rounded-full"></span>
+                        Support Our Mission
+                    </h3>
+                    <p class="text-gray-400 mb-4">Your support makes a difference in the lives of the children we serve.</p>
+                    <a href="./pages/support.html" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition mb-4">Donate Now</a>
+                    <p class="text-gray-500 text-sm">All donations are tax-deductible.</p>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
@@ -260,8 +595,11 @@
     </footer>
 
     <!-- Sticky Support Button -->
-    <a href="/pages/support.html" class="fixed bottom-8 right-8 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg transition transform hover:scale-105 z-50">
-        Support Us
+    <a href="./pages/support.html" class="fixed bottom-8 right-8 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg transition transform hover:scale-105 z-50 hover:bg-blue-700 flex items-center">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+        </svg>
+        <span class="font-medium">Support Us</span>
     </a>
 
     <!-- Scripts -->
@@ -269,6 +607,13 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="js/main.js"></script>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-24 right-8 bg-gray-800 text-white p-3 rounded-full shadow-lg transition transform hover:scale-105 z-50 opacity-0 pointer-events-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
     <script>
         // Video player functionality
         document.addEventListener('DOMContentLoaded', () => {
@@ -292,6 +637,35 @@
 
             video.addEventListener('ended', () => {
                 playButton.style.display = 'flex';
+            });
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: false,
+                mirror: true,
+                offset: 100
+            });
+            
+            // Scroll to top functionality
+            const scrollToTopButton = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopButton.classList.add('opacity-100');
+                    scrollToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    scrollToTopButton.classList.add('opacity-0', 'pointer-events-none');
+                    scrollToTopButton.classList.remove('opacity-100');
+                }
+            });
+            
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
         });
     </script>

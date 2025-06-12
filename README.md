@@ -1,69 +1,73 @@
 # Overcomers Caring Ministries Website
 
-A modern, responsive website for Overcomers Caring Ministries, dedicated to uplifting and empowering vulnerable children through Christ's love.
+This is the official website for Overcomers Caring Ministries, a non-profit organization dedicated to empowering vulnerable children through Christ's love.
 
-## 🌟 Features
+## Features
 
-- Modern, responsive design using Tailwind CSS
-- Interactive elements and smooth animations
-- Image gallery with lightbox functionality
-- Blog/Updates section
-- Contact form with EmailJS integration
+- Modern, responsive design
+- Contact form integration with Web3Forms
+- Image gallery
+- Video player
 - Newsletter subscription
-- Mobile-first approach
-- SEO optimized
-- Social media integration
+- Smooth animations and transitions
 
-## 🛠️ Tech Stack
+## Technologies Used
 
 - HTML5
-- CSS3 with Tailwind CSS
-- JavaScript (Vanilla)
-- EmailJS for contact form
-- AOS (Animate On Scroll) library
-- Swiper.js for carousels
-- Lightbox2 for image galleries
+- CSS3
+- JavaScript
+- Tailwind CSS
+- AOS (Animate On Scroll)
+- Web3Forms API
 
-## 🚀 Quick Start
+## Setup and Deployment
 
-1. Clone the repository
-2. Open `index.html` in your browser
-3. For development:
-   ```bash
-   # Install dependencies
-   npm install
+### Local Development
 
-   # Start development server
-   npm run dev
+1. Clone the repository:
+   ```
+   git clone https://github.com/JoshuaDykes/Overcomers.git
    ```
 
-## 📁 Project Structure
+2. Open the project in your code editor
 
-```
-├── index.html
-├── css/
-│   ├── style.css
-│   └── tailwind.css
-├── js/
-│   ├── main.js
-│   ├── animation.js
-│   └── contact.js
-├── images/
-│   └── [image assets]
-└── pages/
-    ├── about.html
-    ├── work.html
-    ├── get-involved.html
-    ├── support.html
-    ├── gallery.html
-    ├── blog.html
-    └── contact.html
-```
+3. For local development, you can use a local server like Live Server in VS Code or simply open the `index.html` file in your browser.
 
-## 📝 License
+### Deployment
 
-© 2024 Overcomers Caring Ministries - All Rights Reserved
+The website is deployed on GitHub Pages and can be accessed at: [https://joshuadykes.github.io/Overcomers/](https://joshuadykes.github.io/Overcomers/)
 
-## 🤝 Contributing
+To deploy updates:
 
-If you'd like to contribute, please fork the repository and create a pull request. 
+1. Make your changes locally
+2. Commit the changes:
+   ```
+   git add .
+   git commit -m "Description of changes"
+   ```
+3. Push to GitHub:
+   ```
+   git push origin main
+   ```
+4. GitHub Pages will automatically update the website with your changes.
+
+## File Structure
+
+- `index.html` - Main homepage
+- `pages/` - Additional pages (about, contact, gallery, etc.)
+- `css/` - Stylesheets
+- `js/` - JavaScript files
+- `images/` - Image assets
+
+## Contact Form
+
+The contact form uses Web3Forms API. The form submissions will be sent to the email associated with the API key.
+
+## Notes
+
+- Large video files are not included in the Git repository. They are hosted separately or embedded from YouTube.
+- The website uses relative paths for all assets to ensure compatibility with GitHub Pages.
+
+## License
+
+© 2025 Overcomers Caring Ministries. All rights reserved. 
