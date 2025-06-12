@@ -1,0 +1,18 @@
+# Ignore video files
+*.MP4
+*.mp4
+*.MOV
+*.mov
+*.avi
+*.AVI
+*.wmv
+*.WMV
+
+# Specific video directories
+videos/
+Images/*.MP4
+Images/*.mp4
+
+# OS files
+.DS_Store
+Thumbs.db 
